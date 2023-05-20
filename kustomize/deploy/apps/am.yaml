@@ -1,0 +1,46 @@
+#Patch AM
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: am
+spec:
+  template:
+    spec:
+      volumes:
+      - name: scripted-node-secrets
+        emptyDir: {}
+      initContainers:
+      # This init container creates files out of environment variables specified in "AM_SCRIPTED_NODE_ENV_SECRETS".
+      # This is to work around the fact that ScriptedSecrets need a specific prefix as well as the environment variables
+      # are configured for base64, but these secrets are plain text.
+      - name: scripted-node-secrets-init
+        image: am
+        volumeMounts:
+        - mountPath: /secrets
+          name: scripted-node-secrets
+        envFrom:
+        - secretRef:
+            name: amster-env-secrets
+        command:
+        - /bin/bash
+        - -c
+        - |
+          AM_SCRIPTED_NODE_ENV_SECRETS="IDM_PROVISIONING_CLIENT_SECRET"
+          for secret in ${AM_SCRIPTED_NODE_ENV_SECRETS}; do
+            # ScriptedSecrets require a "scripted.node." prefix
+            fileName=/secrets/scripted.node.$(echo -n ${secret} | tr '[:upper:]_' '[:lower:].').txt
+            echo "Outputing env var ${secret} to ${fileName}"
+            echo -n "${!secret}" > ${fileName}
+          done
+      containers:
+      - name: openam
+        imagePullPolicy: Always
+        env:
+        - name: JPDA_TRANSPORT
+          value: dt_socket
+        - name: JPDA_ADDRESS
+          value: "*:9009"
+        volumeMounts:
+        - name: scripted-node-secrets
+          mountPath: /var/run/secrets/scripted-node-secrets
+          readOnly: true

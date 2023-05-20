@@ -10,3 +10,4 @@ resources:
 
 patches:
   - path: am.yaml
+  - path: idm.yaml

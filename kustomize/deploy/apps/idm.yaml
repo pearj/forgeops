@@ -1,0 +1,33 @@
+#Patch IDM
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idm
+spec:
+  template:
+    spec:
+      initContainers:
+      - name: fbc-init
+        image: idm
+        command:
+        - /bin/bash
+        - -c
+        - |
+          if [ -d /fbc/conf ];
+          then
+            echo "Existing openidm configuration found. Skipping copy"
+          else
+            echo "Copying docker image configuration files to the shared volume"
+            cd /opt/openidm
+            cp -vr ui conf generated-script script /fbc
+          fi
+      containers:
+      - name: openidm
+        imagePullPolicy: Always
+        env:
+        - name: JAVA_OPTS
+          value: "-XX:MaxRAMPercentage=65 -XX:InitialRAMPercentage=65 -XX:MaxTenuringThreshold=1 -Djava.security.egd=file:/dev/urandom -XshowSettings:vm  -XX:+PrintFlagsFinal -agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n"
+        volumeMounts:
+        - name: fbc
+          mountPath: /opt/openidm/generated-script
+          subPath: generated-script
