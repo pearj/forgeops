@@ -23,9 +23,9 @@
     "evaluatorVersion" : "V1_0",
     "creationDate" : "0",
     "language" : "GROOVY",
-    "script": {
-      "$base64:encode": {
-        "$inline": "CheckActivationState.groovy"
+    "script" : {
+      "$base64:encode" : {
+        "$inline" : "CheckActivationState.groovy"
       }
     },
     "description" : null,

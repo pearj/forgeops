@@ -14,7 +14,7 @@ spec:
       # This is to work around the fact that ScriptedSecrets need a specific prefix as well as the environment variables
       # are configured for base64, but these secrets are plain text.
       - name: scripted-node-secrets-init
-        image: am
+        image: localhost:5001/am
         volumeMounts:
         - mountPath: /secrets
           name: scripted-node-secrets

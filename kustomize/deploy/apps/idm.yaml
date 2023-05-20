@@ -8,7 +8,6 @@ spec:
     spec:
       initContainers:
       - name: fbc-init
-        image: idm
         command:
         - /bin/bash
         - -c
