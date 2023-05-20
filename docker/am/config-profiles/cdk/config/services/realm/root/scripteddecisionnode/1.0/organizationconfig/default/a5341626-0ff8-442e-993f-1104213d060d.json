@@ -1,0 +1,33 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "ScriptedDecisionNode",
+    "entityId" : "default/a5341626-0ff8-442e-993f-1104213d060d",
+    "uid" : "ou=a5341626-0ff8-442e-993f-1104213d060d,ou=default,ou=OrganizationConfig,ou=1.0,ou=ScriptedDecisionNode,ou=services,ou=am-config",
+    "sunServiceID" : "instance",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : null
+  },
+  "data" : {
+    "_id" : "default/a5341626-0ff8-442e-993f-1104213d060d",
+    "_type" : {
+      "_id" : "ScriptedDecisionNode",
+      "name" : "ScriptedDecisionNode",
+      "collection" : false
+    },
+    "script" : "cdbad902-5475-41a5-8f37-c98e2e8ca0fd",
+    "outcomes" : [
+      "true"
+    ],
+    "outputs" : [
+      "*"
+    ],
+    "inputs" : [
+      "*"
+    ]
+  }
+}

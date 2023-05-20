@@ -1,0 +1,35 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "PageNode",
+    "entityId" : "default/d3efb4ad-7031-475b-8881-3d2754285d5c",
+    "uid" : "ou=d3efb4ad-7031-475b-8881-3d2754285d5c,ou=default,ou=OrganizationConfig,ou=1.0,ou=PageNode,ou=services,ou=am-config",
+    "sunServiceID" : "instance",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : [
+      "d3efb4ad-7031-475b-8881-3d2754285d5c"
+    ]
+  },
+  "data" : {
+    "_id" : "default/d3efb4ad-7031-475b-8881-3d2754285d5c",
+    "_type" : {
+      "_id" : "PageNode",
+      "name" : "PageNode",
+      "collection" : false
+    },
+    "nodes" : [
+      "6b07f6b8-2988-40bb-b92c-70a89f273acc:ValidatedUsernameNode:Platform Username",
+      "beb57bed-2ff5-4c96-b28d-bc20aa84c922:ValidatedPasswordNode:Platform Password"
+    ],
+    "pageDescription" : {
+      "en" : "Please provide your user name and password"
+    },
+    "pageHeader" : {
+      "en" : "Account Activation"
+    }
+  }
+}

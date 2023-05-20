@@ -1,0 +1,29 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "PageNode",
+    "entityId" : "default/e01fc268-5794-4d36-9668-864916f2a0ce",
+    "uid" : "ou=e01fc268-5794-4d36-9668-864916f2a0ce,ou=default,ou=OrganizationConfig,ou=1.0,ou=PageNode,ou=services,ou=am-config",
+    "sunServiceID" : "instance",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : null
+  },
+  "data" : {
+    "_id" : "default/e01fc268-5794-4d36-9668-864916f2a0ce",
+    "_type" : {
+      "_id" : "PageNode",
+      "name" : "PageNode",
+      "collection" : false
+    },
+    "nodes" : [
+      "a5341626-0ff8-442e-993f-1104213d060d:ScriptedDecisionNode:Waiting Callback"
+    ],
+    "pageHeader" : {
+      "en" : "Account Activation Pending"
+    }
+  }
+}

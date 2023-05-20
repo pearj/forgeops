@@ -1,0 +1,33 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "ScriptingService",
+    "entityId" : "default/scriptConfigurations/156ed9c5-b3e7-43f1-984f-e05c0a7b5ae1",
+    "uid" : "ou=156ed9c5-b3e7-43f1-984f-e05c0a7b5ae1,ou=scriptConfigurations,ou=default,ou=OrganizationConfig,ou=1.0,ou=ScriptingService,ou=services,ou=am-config",
+    "sunServiceID" : "scriptConfiguration",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : null
+  },
+  "data" : {
+    "_id" : "default/scriptConfigurations/156ed9c5-b3e7-43f1-984f-e05c0a7b5ae1",
+    "_type" : {
+      "_id" : "ScriptingService",
+      "name" : "ScriptingService",
+      "collection" : false
+    },
+    "createdBy" : "null",
+    "evaluatorVersion" : "V1_0",
+    "creationDate" : "0",
+    "language" : "GROOVY",
+    "script" : "/*\n  - Data made available by nodes that have already executed are available in the sharedState variable.\n  - The script should set outcome to either \"true\" or \"false\".\n */\n\noutcome = \"true\";",
+    "description" : null,
+    "lastModifiedBy" : "null",
+    "context" : "AUTHENTICATION_TREE_DECISION_NODE",
+    "lastModifiedDate" : "0",
+    "name" : "Save Progress"
+  }
+}

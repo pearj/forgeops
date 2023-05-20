@@ -1,0 +1,34 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "MessageNode",
+    "entityId" : "default/3e078882-9ca6-4b4a-8fc3-7f88e2fd2a03",
+    "uid" : "ou=3e078882-9ca6-4b4a-8fc3-7f88e2fd2a03,ou=default,ou=OrganizationConfig,ou=1.0,ou=MessageNode,ou=services,ou=am-config",
+    "sunServiceID" : "instance",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : [
+      "3e078882-9ca6-4b4a-8fc3-7f88e2fd2a03"
+    ]
+  },
+  "data" : {
+    "_id" : "default/3e078882-9ca6-4b4a-8fc3-7f88e2fd2a03",
+    "_type" : {
+      "_id" : "MessageNode",
+      "name" : "MessageNode",
+      "collection" : false
+    },
+    "messageYes" : {
+      "en" : "OK"
+    },
+    "message" : {
+      "en" : "Your account does not need to be activated"
+    },
+    "messageNo" : {
+      "en" : "Cancel"
+    }
+  }
+}

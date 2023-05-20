@@ -1,0 +1,128 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "authenticationTreesService",
+    "entityId" : "default/Account Activation",
+    "uid" : "ou=Account Activation,ou=default,ou=OrganizationConfig,ou=1.0,ou=authenticationTreesService,ou=services,ou=am-config",
+    "sunServiceID" : "tree",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : [
+      "Account Activation"
+    ]
+  },
+  "data" : {
+    "_id" : "default/Account Activation",
+    "_type" : {
+      "_id" : "authenticationTreesService",
+      "name" : "authenticationTreesService",
+      "collection" : false
+    },
+    "identityResource" : "managed/user",
+    "uiConfig" : {
+      "categories" : "[]"
+    },
+    "entryNodeId" : "d3efb4ad-7031-475b-8881-3d2754285d5c",
+    "nodes" : {
+      "d3efb4ad-7031-475b-8881-3d2754285d5c" : {
+        "x" : 210,
+        "y" : 334.5,
+        "connections" : {
+          "outcome" : "7f85ba80-d77b-45b3-b34e-5c81b2d57953"
+        },
+        "nodeType" : "PageNode",
+        "displayName" : "Authenticate"
+      },
+      "7f85ba80-d77b-45b3-b34e-5c81b2d57953" : {
+        "x" : 455,
+        "y" : 362,
+        "connections" : {
+          "false" : "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true" : "dc2fa2f5-eff6-4d01-88b2-eb056ca96cb8"
+        },
+        "nodeType" : "DataStoreDecisionNode",
+        "displayName" : "Data Store Decision"
+      },
+      "dc2fa2f5-eff6-4d01-88b2-eb056ca96cb8" : {
+        "x" : 691,
+        "y" : 175.66666666666669,
+        "connections" : {
+          "Enrol KBA" : "3c9b6b05-6024-4d29-a22d-0bb3a6e1e1e9",
+          "Account Not Pending" : "3e078882-9ca6-4b4a-8fc3-7f88e2fd2a03",
+          "Start Activation" : "c7bb4225-398f-495c-811c-f64fe2afd59a",
+          "Change Password" : "612a4e65-2b70-4641-bd9e-dc46e4973122",
+          "Intermediate Activation" : "c7bb4225-398f-495c-811c-f64fe2afd59a",
+          "Activation Pending" : "e01fc268-5794-4d36-9668-864916f2a0ce",
+          "Final Activation" : "c7bb4225-398f-495c-811c-f64fe2afd59a"
+        },
+        "nodeType" : "ScriptedDecisionNode",
+        "displayName" : "Check Activation State"
+      },
+      "3c9b6b05-6024-4d29-a22d-0bb3a6e1e1e9" : {
+        "x" : 946,
+        "y" : 80,
+        "connections" : {
+          "outcome" : "c7bb4225-398f-495c-811c-f64fe2afd59a"
+        },
+        "nodeType" : "PageNode",
+        "displayName" : "KBA Enrollment"
+      },
+      "c7bb4225-398f-495c-811c-f64fe2afd59a" : {
+        "x" : 1193,
+        "y" : 165,
+        "connections" : {
+          "Saved" : "dc2fa2f5-eff6-4d01-88b2-eb056ca96cb8",
+          "Complete" : "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "nodeType" : "ScriptedDecisionNode",
+        "displayName" : "Save Progress"
+      },
+      "3e078882-9ca6-4b4a-8fc3-7f88e2fd2a03" : {
+        "x" : 946,
+        "y" : 268,
+        "connections" : {
+          "true" : "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "false" : "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "nodeType" : "MessageNode",
+        "displayName" : "Account Not Pending"
+      },
+      "612a4e65-2b70-4641-bd9e-dc46e4973122" : {
+        "x" : 946,
+        "y" : 453,
+        "connections" : {
+          "true" : "c7bb4225-398f-495c-811c-f64fe2afd59a"
+        },
+        "nodeType" : "PageNode",
+        "displayName" : "Change Password"
+      },
+      "e01fc268-5794-4d36-9668-864916f2a0ce" : {
+        "x" : 946,
+        "y" : 641,
+        "connections" : {
+          "true" : "dc2fa2f5-eff6-4d01-88b2-eb056ca96cb8"
+        },
+        "nodeType" : "PageNode",
+        "displayName" : "Account Activation Pending"
+      }
+    },
+    "staticNodes" : {
+      "startNode" : {
+        "x" : 70,
+        "y" : 379.5
+      },
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0" : {
+        "x" : 1457,
+        "y" : 359.5
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a" : {
+        "x" : 691,
+        "y" : 439.8333333333333
+      }
+    },
+    "description" : null
+  }
+}

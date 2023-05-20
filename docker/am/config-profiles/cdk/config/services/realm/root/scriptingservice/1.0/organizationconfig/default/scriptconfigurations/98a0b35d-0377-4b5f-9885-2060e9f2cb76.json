@@ -1,0 +1,33 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "ScriptingService",
+    "entityId" : "default/scriptConfigurations/98a0b35d-0377-4b5f-9885-2060e9f2cb76",
+    "uid" : "ou=98a0b35d-0377-4b5f-9885-2060e9f2cb76,ou=scriptConfigurations,ou=default,ou=OrganizationConfig,ou=1.0,ou=ScriptingService,ou=services,ou=am-config",
+    "sunServiceID" : "scriptConfiguration",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : null
+  },
+  "data" : {
+    "_id" : "default/scriptConfigurations/98a0b35d-0377-4b5f-9885-2060e9f2cb76",
+    "_type" : {
+      "_id" : "ScriptingService",
+      "name" : "ScriptingService",
+      "collection" : false
+    },
+    "createdBy" : "null",
+    "evaluatorVersion" : "V1_0",
+    "creationDate" : "0",
+    "language" : "GROOVY",
+    "script" : "/*\n  - Data made available by nodes that have already executed are available in the sharedState variable.\n  - The script should set outcome to either \"true\" or \"false\".\n */\n\noutcome = \"true\";",
+    "description" : null,
+    "lastModifiedBy" : "null",
+    "context" : "AUTHENTICATION_TREE_DECISION_NODE",
+    "lastModifiedDate" : "0",
+    "name" : "Password Change"
+  }
+}

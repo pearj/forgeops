@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "PageNode",
+    "entityId" : "default/612a4e65-2b70-4641-bd9e-dc46e4973122",
+    "uid" : "ou=612a4e65-2b70-4641-bd9e-dc46e4973122,ou=default,ou=OrganizationConfig,ou=1.0,ou=PageNode,ou=services,ou=am-config",
+    "sunServiceID" : "instance",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : [
+      "612a4e65-2b70-4641-bd9e-dc46e4973122"
+    ]
+  },
+  "data" : {
+    "_id" : "default/612a4e65-2b70-4641-bd9e-dc46e4973122",
+    "_type" : {
+      "_id" : "PageNode",
+      "name" : "PageNode",
+      "collection" : false
+    },
+    "nodes" : [
+      "c2c3dcf2-21ce-4f08-a939-92464a54f109:ScriptedDecisionNode:Scripted Password Change"
+    ],
+    "stage" : null,
+    "pageHeader" : {
+      "en" : "Change Password"
+    }
+  }
+}

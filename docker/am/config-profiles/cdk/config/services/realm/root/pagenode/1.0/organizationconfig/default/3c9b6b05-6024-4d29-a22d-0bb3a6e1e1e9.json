@@ -1,0 +1,31 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "PageNode",
+    "entityId" : "default/3c9b6b05-6024-4d29-a22d-0bb3a6e1e1e9",
+    "uid" : "ou=3c9b6b05-6024-4d29-a22d-0bb3a6e1e1e9,ou=default,ou=OrganizationConfig,ou=1.0,ou=PageNode,ou=services,ou=am-config",
+    "sunServiceID" : "instance",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : [
+      "3c9b6b05-6024-4d29-a22d-0bb3a6e1e1e9"
+    ]
+  },
+  "data" : {
+    "_id" : "default/3c9b6b05-6024-4d29-a22d-0bb3a6e1e1e9",
+    "_type" : {
+      "_id" : "PageNode",
+      "name" : "PageNode",
+      "collection" : false
+    },
+    "nodes" : [
+      "5f4032cd-6c86-46d3-b52e-e99ca17ff275:KbaCreateNode:KBA Definition"
+    ],
+    "pageHeader" : {
+      "en" : "Self-Service Password Reset Enrolment"
+    }
+  }
+}

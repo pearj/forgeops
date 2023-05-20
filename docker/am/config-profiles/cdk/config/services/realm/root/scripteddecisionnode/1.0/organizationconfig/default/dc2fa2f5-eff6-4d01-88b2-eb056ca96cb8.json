@@ -1,0 +1,41 @@
+{
+  "metadata" : {
+    "realm" : "/",
+    "entityType" : "ScriptedDecisionNode",
+    "entityId" : "default/dc2fa2f5-eff6-4d01-88b2-eb056ca96cb8",
+    "uid" : "ou=dc2fa2f5-eff6-4d01-88b2-eb056ca96cb8,ou=default,ou=OrganizationConfig,ou=1.0,ou=ScriptedDecisionNode,ou=services,ou=am-config",
+    "sunServiceID" : "instance",
+    "objectClass" : [
+      "top",
+      "sunServiceComponent"
+    ],
+    "pathParams" : { },
+    "ou" : [
+      "dc2fa2f5-eff6-4d01-88b2-eb056ca96cb8"
+    ]
+  },
+  "data" : {
+    "_id" : "default/dc2fa2f5-eff6-4d01-88b2-eb056ca96cb8",
+    "_type" : {
+      "_id" : "ScriptedDecisionNode",
+      "name" : "ScriptedDecisionNode",
+      "collection" : false
+    },
+    "script" : "6bea6333-8c27-4da8-ac37-df3309995675",
+    "outcomes" : [
+      "Account Not Pending",
+      "Start Activation",
+      "Change Password",
+      "Enrol KBA",
+      "Intermediate Activation",
+      "Activation Pending",
+      "Final Activation"
+    ],
+    "outputs" : [
+      "*"
+    ],
+    "inputs" : [
+      "*"
+    ]
+  }
+}
