@@ -67,6 +67,31 @@ export function enumValue(fullObject: unknown, value: string | undefined, params
   return []
 }
 
+function selfServicePasswordConfirmPolicy(): Policy {
+  return {
+    policyId: "selfServicePasswordConfirm",
+    policyExec: "selfServicePasswordConfirm",
+    policyRequirements: ["PASSWORD_CONFIRM"],
+    validateOnlyIfPresent: true,
+  }
+}
+
+type PasswordParams = {
+  compareField: string
+}
+
+export function selfServicePasswordConfirm(fullObject: any, value: string | undefined, params: PasswordParams): PolicyRequirement[] {
+  const otherPassword = fullObject[params.compareField] as Record<string, any>
+  if (value && (value?.length ?? 0) > 0 && otherPassword && !(openidm.isHashed(otherPassword) && openidm.matches(value, otherPassword))) {
+    return [
+      {
+        policyRequirement: "PASSWORD_CONFIRM",
+      },
+    ]
+  }
+  return []
+}
+
 function addsPasswordComplexityPolicy(): Policy {
   return {
     policyId: "addsPasswordComplexity",
@@ -103,5 +128,6 @@ export function addsPasswordComplexity(fullObject: any, value: string | undefine
 export function registerAdditionalPolicies(addPolicy: Function): void {
   addPolicy(maximumArrayLengthPolicy())
   addPolicy(enumValuePolicy())
+  addPolicy(selfServicePasswordConfirmPolicy())
   addPolicy(addsPasswordComplexityPolicy())
 }

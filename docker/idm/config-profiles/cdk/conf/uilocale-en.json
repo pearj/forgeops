@@ -1,0 +1,18 @@
+{
+  "enduser": {},
+  "login": {},
+  "shared": {
+    "common": {
+      "policyValidationMessages": {
+        "MAXIMUM_ARRAY_LENGTH": "Only %{maximumItems} %{typeName} are allowed",
+        "MAX_LENGTH": "Cannot be more than %{maxLength} characters long",
+        "PASSWORD_CONFIRM": "Password must be the same as your new password",
+        "AT_LEAST_LOWERCASE_LETTERS": "Must have at least 1 lower case letter (3 out of 4 categories)",
+        "AT_LEAST_UPPERCASE_LETTERS": "Must have at least 1 capital letter (3 out of 4 categories)",
+        "AT_LEAST_DIGITS": "Must have at least 1 number (3 out of 4 categories)",
+        "AT_LEAST_SPECIAL": "Must have at least 1 special character eg: !, @, $, etc (3 out of 4 categories)",
+        "ENUM_VALUE": "Must be one of the following values: %{allowedValues}"
+      }
+    }
+  }
+}

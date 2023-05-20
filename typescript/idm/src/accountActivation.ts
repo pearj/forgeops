@@ -4,6 +4,8 @@ import { AccountStatus, findUserByUserName } from "./user"
 
 const logger = getLogger("pearj.script.accountActivation")
 
+export const PASSWORD_HISTORY_ALGORITHM = "SHA-512"
+
 function generateActivationDelayMessage(content: Partial<ActivationSharedState>): string | undefined {
   // eslint-disable-next-line sonarjs/no-duplicate-string
   if (content["activation.activationDelay"]) {
@@ -110,12 +112,22 @@ function changePassword(user: ManagedUser, content: Record<string, any>): Record
   return { success: true }
 }
 
+type PasswordHashState = {
+  passwordToHash?: string
+}
+
+function hashPassword(content: PasswordHashState): Record<string, any> {
+  return { hashedPassword: openidm.hash(content.passwordToHash, PASSWORD_HISTORY_ALGORITHM) }
+}
+
 // eslint-disable-next-line sonarjs/cognitive-complexity
 export function handleRequest(request: CustomEndpointRequest): Record<string, any> {
   if (request.method === "action") {
     const user = findUserByUserName(request.content.userName)
     if (request.resourcePath === "activationState" && request.action === "check") {
       return checkActivationState(user, request.content)
+    } else if (request.resourcePath === "password" && request.action === "hash") {
+      return hashPassword(request.content)
     } else if (request.resourcePath === "saveProgress") {
       switch (request.action) {
         case "startActivation":

@@ -23,7 +23,11 @@
     "evaluatorVersion" : "V1_0",
     "creationDate" : "0",
     "language" : "GROOVY",
-    "script" : "/*\n  - Data made available by nodes that have already executed are available in the sharedState variable.\n  - The script should set outcome to either \"true\" or \"false\".\n */\n\noutcome = \"true\";",
+    "script": {
+      "$base64:encode": {
+        "$inline": "ActivationSaveProgress.groovy"
+      }
+    },
     "description" : null,
     "lastModifiedBy" : "null",
     "context" : "AUTHENTICATION_TREE_DECISION_NODE",

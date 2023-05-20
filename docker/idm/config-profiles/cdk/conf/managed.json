@@ -48,7 +48,8 @@
                     "memberOfOrgIDs",
                     "activeDate",
                     "inactiveDate",
-                    "ownerOfApp"
+                    "ownerOfApp",
+                    "confirmPassword"
                 ],
                 "properties" : {
                     "_id" : {
@@ -83,34 +84,35 @@
                         "isPersonal" : false,
                         "policies" : [
                             {
-                                "policyId" : "minimum-length",
-                                "params" : {
-                                    "minLength" : 8
-                                }
-                            },
-                            {
-                                "policyId" : "at-least-X-capitals",
-                                "params" : {
-                                    "numCaps" : 1
-                                }
-                            },
-                            {
-                                "policyId" : "at-least-X-numbers",
-                                "params" : {
-                                    "numNums" : 1
-                                }
-                            },
-                            {
                                 "policyId" : "cannot-contain-others",
                                 "params" : {
                                     "disallowedFields" : [
-                                        "userName",
-                                        "givenName",
-                                        "sn"
+                                        "userName"
                                     ]
+                                }
+                            },
+                            {
+                                "policyId": "addsPasswordComplexity"
+                            },
+                            {
+                                "policyId": "selfServicePasswordConfirm",
+                                "params": {
+                                  "compareField": "confirmPassword"
                                 }
                             }
                         ]
+                    },
+                    "confirmPassword": {
+                        "title": "Virtual Field for confirming a new password",
+                        "type": "object",
+                        "viewable": false,
+                        "searchable": false,
+                        "userEditable": false,
+                        "description": null,
+                        "isVirtual": true,
+                        "returnByDefault": false,
+                        "deleteQueryConfig": false,
+                        "policies": []
                     },
                     "cn" : {
                         "title" : "Common Name",
@@ -271,7 +273,21 @@
                         "searchable" : true,
                         "userEditable" : false,
                         "usageDescription" : "",
-                        "isPersonal" : false
+                        "isPersonal" : false,
+                        "policies": [
+                            {
+                              "policyId": "enumValue",
+                              "params": {
+                                "values": [
+                                  "active",
+                                  "inactive",
+                                  "pending",
+                                  "activating",
+                                  "startedactivation"
+                                ]
+                              }
+                            }
+                        ]
                     },
                     "roles" : {
                         "description" : "Provisioning Roles",

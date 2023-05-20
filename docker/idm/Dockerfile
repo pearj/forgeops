@@ -3,6 +3,11 @@ FROM gcr.io/forgerock-io/idm-cdk:7.3.0
 
 COPY debian-buster-sources.list /etc/apt/sources.list
 
+RUN apt-get update \
+        && apt-get install -y rsync jq \
+        && apt-get clean \
+        && rm -r /var/lib/apt/lists /var/cache/apt/archives
+
 # Harden IDM by removing the Felix OSGI Console. Unless you are a ForgeRock developer, the
 # console is rarely required. Your configuration should NOT include conf/felix.webconsole.json
 RUN rm -f bundle/org.apache.felix.webconsole*.jar  && \
@@ -16,3 +21,6 @@ ARG CONFIG_PROFILE=cdk
 RUN echo "\033[0;36m*** Building '${CONFIG_PROFILE}' profile ***\033[0m"
 COPY --chown=forgerock:root config-profiles/${CONFIG_PROFILE}/ /opt/openidm
 COPY --chown=forgerock:root . /opt/openidm
+
+# Add merge the translation files together
+RUN jq -s '.[0] * .[1]' ui/admin/default/locales/en/translation.json ui/admin/extension/locales/en/translation.merge.json > ui/admin/extension/locales/en/translation.json
