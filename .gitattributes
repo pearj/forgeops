@@ -1,0 +1,7 @@
+*.zip filter=lfs diff=lfs merge=lfs -text
+legacy-docs/**/*.zip !filter !diff !merge binary
+# JSON diff can be useful during upgrades to see if there are actually structural changes
+# *.json diff=json
+# For JSON diff to work this needs to be in ~/.gitconfig
+# [diff "json"]
+#          textconv = "cat \"$1\" | jsonlint -Sf"

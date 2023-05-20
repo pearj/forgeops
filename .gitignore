@@ -39,3 +39,11 @@ tag.json
 *.swp
 *.swo
 *~
+.yarn/*
+!.yarn/cache
+!.yarn/cache/*.zip
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

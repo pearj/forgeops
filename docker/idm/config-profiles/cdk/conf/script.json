@@ -32,6 +32,9 @@
         },
         "project-script" : {
             "directory" : "&{idm.instance.dir}/script"
+        },
+        "project-generated-script" : {
+            "directory" : "&{idm.instance.dir}/generated-script"
         }
     }
 }
