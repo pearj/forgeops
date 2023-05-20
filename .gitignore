@@ -14,7 +14,7 @@ settings.xml
 *.cfg
 etc/cert-manager.json
 *.pyc
-.vscode/
+# .vscode/
 .pytest_cache/
 reports/
 res.txt

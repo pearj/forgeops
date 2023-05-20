@@ -1,0 +1,5 @@
+{
+    "context" : "endpoint/accountActivation/*",
+    "type" : "text/javascript",
+    "source" : "require('accountActivation').handleRequest(request);"
+}

@@ -198,6 +198,12 @@
             "actions" : "authenticate"
         },
         {
+            "pattern": "endpoint/accountActivation/*",
+            "roles": "internal/role/platform-provisioning",
+            "methods": "*",
+            "actions": "*"
+        },
+        {
             "pattern" : "policy/*",
             "roles" : "internal/role/openidm-authorized",
             "methods" : "read,action",
