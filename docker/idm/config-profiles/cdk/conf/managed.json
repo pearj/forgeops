@@ -266,7 +266,6 @@
                     },
                     "accountStatus" : {
                         "title" : "Status",
-                        "default" : "active",
                         "description" : "Status",
                         "viewable" : true,
                         "type" : "string",
@@ -1175,7 +1174,7 @@
                     "userName",
                     "givenName",
                     "sn",
-                    "mail"
+                    "accountStatus"
                 ]
             },
             "meta" : {
