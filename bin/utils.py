@@ -788,9 +788,9 @@ def build_docker_image(component, context, dockerfile, push_to, tag,
         else:
             image = f'{component}:{tag}'
     run('docker',
-        f'build {build_args} -t {image} -f {dockerfile} {context}', cwd=base_dir)
-    if push_to.lower() != 'none':
-        run('docker', f'push {image}', cwd=base_dir)
+        f'buildx build {build_args} -t {image} --push -f {dockerfile} {context}', cwd=base_dir)
+    # if push_to.lower() != 'none':
+    #     run('docker', f'push {image}', cwd=base_dir)
     return image
 
 
