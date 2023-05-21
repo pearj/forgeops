@@ -150,7 +150,8 @@
       "org.forgerock.openam.audit.context.AuditRequestContext",
       "org.forgerock.openam.scripting.api.PrefixedScriptPropertyResolver",
       "java.util.List",
-      "java.util.Map"
+      "java.util.Map",
+      "org.codehaus.groovy.runtime.EncodingGroovyMethods$*"
     ],
     "idleTimeout" : 60,
     "queueSize" : -1,

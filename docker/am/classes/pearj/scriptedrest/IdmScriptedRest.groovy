@@ -32,13 +32,12 @@ class IdmScriptedRest {
 
         def body = [
                 grant_type   : ["client_credentials"],
-                client_id    : [clientId],
-                client_secret: [clientSecret],
                 scope        : ["fr:idm:*"]
         ]
         def form = new Form()
         form.addAll(body)
         request.entity = form
+        request.headers.add("Authorization", "Basic ${(clientId + ":" + clientSecret).bytes.encodeBase64().toString()}".toString())
 
         def response = httpClient.send(request).getOrThrow()
 
