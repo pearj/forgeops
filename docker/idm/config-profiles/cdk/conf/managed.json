@@ -20,6 +20,7 @@
                     "profileImage",
                     "description",
                     "accountStatus",
+                    "activationStatus",
                     "telephoneNumber",
                     "postalAddress",
                     "city",
@@ -267,6 +268,17 @@
                     "accountStatus" : {
                         "title" : "Status",
                         "description" : "Status",
+                        "default" : "active",
+                        "viewable" : true,
+                        "type" : "string",
+                        "searchable" : true,
+                        "userEditable" : false,
+                        "usageDescription" : "",
+                        "isPersonal" : false
+                    },
+                    "activationStatus" : {
+                        "title" : "Activation Status",
+                        "description" : "Activation Status",
                         "viewable" : true,
                         "type" : "string",
                         "searchable" : true,
@@ -1174,7 +1186,7 @@
                     "userName",
                     "givenName",
                     "sn",
-                    "accountStatus"
+                    "activationStatus"
                 ]
             },
             "meta" : {

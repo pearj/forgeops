@@ -13,7 +13,7 @@ const logger = getLogger("pearj.script.user")
  */
 export const PASSWORD_HISTORY_ALGORITHM = "SHA-512"
 
-export enum AccountStatus {
+export enum ActivationStatus {
   /**
    * User is completely active
    */

@@ -1,6 +1,6 @@
 import idm, { ManagedUser } from "lib/idm"
 import { getLogger } from "./common"
-import { AccountStatus, findUserByUserName } from "./user"
+import { ActivationStatus, findUserByUserName } from "./user"
 
 const logger = getLogger("pearj.script.accountActivation")
 
@@ -21,11 +21,11 @@ function generateActivationDelayMessage(content: Partial<ActivationSharedState>)
   return undefined
 }
 
-function setAccountStatus(user: ManagedUser, newAccountStatus: AccountStatus): Record<string, any> {
+function setActivationStatus(user: ManagedUser, newAccountStatus: ActivationStatus): Record<string, any> {
   idm.managed.user.patch(user._id, null, [
     {
       operation: "replace",
-      field: "accountStatus",
+      field: "activationStatus",
       value: newAccountStatus,
     },
   ])
@@ -59,11 +59,13 @@ enum ActivationState {
 }
 
 function checkActivationState(user: ManagedUser, content: Partial<ActivationSharedState>): ActivateStateResponse {
-  if (![AccountStatus.PENDING, AccountStatus.ACTIVATING, AccountStatus.STARTED_ACTIVATION].includes(user.accountStatus as AccountStatus)) {
+  if (
+    ![ActivationStatus.PENDING, ActivationStatus.ACTIVATING, ActivationStatus.STARTED_ACTIVATION].includes(user.activationStatus as ActivationStatus)
+  ) {
     return { outcome: ActivationState.NOT_PENDING }
   }
 
-  if ([AccountStatus.PENDING].includes(user.accountStatus as AccountStatus)) {
+  if ([ActivationStatus.PENDING].includes(user.activationStatus as ActivationStatus)) {
     // We're about to start activation, so let's flick over the status to started activation.
     // This enables password sync to happen in the change password step, where before it might have been disabled for the PENDING_WITH_PUD status
     return { outcome: ActivationState.START_ACTIVATION }
@@ -73,7 +75,7 @@ function checkActivationState(user: ManagedUser, content: Partial<ActivationShar
     return { outcome: ActivationState.ENROL_KBA }
   }
 
-  if (user.accountStatus === AccountStatus.STARTED_ACTIVATION) {
+  if (user.activationStatus === ActivationStatus.STARTED_ACTIVATION) {
     // Set a shared state that is the activation time, so that we can wait 30 seconds if it hasn't elapsed by final activation.
     const activationDelay = new Date()
     activationDelay.setSeconds(activationDelay.getSeconds() + 30)
@@ -131,15 +133,15 @@ export function handleRequest(request: CustomEndpointRequest): Record<string, an
     } else if (request.resourcePath === "saveProgress") {
       switch (request.action) {
         case "startActivation":
-          return setAccountStatus(user, AccountStatus.STARTED_ACTIVATION)
+          return setActivationStatus(user, ActivationStatus.STARTED_ACTIVATION)
         case "changePassword":
           return changePassword(user, request.content)
         case "enrolKba":
           return enrolKba(user, request.content)
         case "intermediateActivation":
-          return setAccountStatus(user, AccountStatus.ACTIVATING)
+          return setActivationStatus(user, ActivationStatus.ACTIVATING)
         case "finalActivate":
-          return setAccountStatus(user, AccountStatus.ACTIVE)
+          return setActivationStatus(user, ActivationStatus.ACTIVE)
         default:
           throw `Unsupported action [${request.action}]`
       }
