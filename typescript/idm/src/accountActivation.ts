@@ -113,6 +113,11 @@ function changePassword(user: ManagedUser, content: Record<string, any>): Record
       field: "password",
       value: content.password,
     },
+    {
+      operation: "replace",
+      field: "changePassword",
+      value: false,
+    },
   ])
 
   return { success: true }
