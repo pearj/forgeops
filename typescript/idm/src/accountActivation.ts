@@ -129,11 +129,12 @@ function hashPassword(content: PasswordHashState): Record<string, any> {
 // eslint-disable-next-line sonarjs/cognitive-complexity
 export function handleRequest(request: CustomEndpointRequest): Record<string, any> {
   if (request.method === "action") {
+    if (request.resourcePath === "password" && request.action === "hash") {
+      return hashPassword(request.content)
+    }
     const user = findUserByUserName(request.content.userName)
     if (request.resourcePath === "activationState" && request.action === "check") {
       return checkActivationState(user, request.content)
-    } else if (request.resourcePath === "password" && request.action === "hash") {
-      return hashPassword(request.content)
     } else if (request.resourcePath === "saveProgress") {
       switch (request.action) {
         case "startActivation":

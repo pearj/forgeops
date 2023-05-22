@@ -83,6 +83,7 @@
                         "scope" : "private",
                         "isProtected" : true,
                         "usageDescription" : "",
+                        "minLength" : 10,
                         "isPersonal" : false,
                         "policies" : [
                             {
