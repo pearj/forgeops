@@ -35,6 +35,12 @@ spec:
       containers:
       - name: openam
         imagePullPolicy: Always
+        resources:
+          limits:
+            memory: 3000Mi
+          requests:
+            memory: 2800Mi
+            cpu: 250m
         env:
         - name: JPDA_TRANSPORT
           value: dt_socket
