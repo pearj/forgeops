@@ -71,6 +71,10 @@ function checkActivationState(user: ManagedUser, content: Partial<ActivationShar
     return { outcome: ActivationState.START_ACTIVATION }
   }
 
+  if (user.changePassword === true) {
+    return { outcome: ActivationState.CHANGE_PASSWORD }
+  }
+
   if ((user.kbaInfo?.length ?? 0) === 0) {
     return { outcome: ActivationState.ENROL_KBA }
   }

@@ -17,6 +17,7 @@
                     "cn",
                     "sn",
                     "mail",
+                    "changePassword",
                     "profileImage",
                     "description",
                     "accountStatus",
@@ -197,6 +198,13 @@
                                 "policyId" : "valid-email-address-format"
                             }
                         ]
+                    },
+                    "changePassword": {
+                        "title": "User Must Change Password",
+                        "type": "boolean",
+                        "viewable": true,
+                        "searchable": false,
+                        "userEditable": false
                     },
                     "sn" : {
                         "title" : "Last Name",
