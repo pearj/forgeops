@@ -139,6 +139,7 @@
       "java.util.LinkedHashMap$LinkedEntrySet",
       "java.util.Optional",
       "pearj.scriptedrest.IdmScriptedRest",
+      "pearj.scripted.ScriptedUtilities",
       "org.forgerock.openam.authentication.callbacks.*",
       "java.util.stream.*",
       "org.forgerock.json.JsonPointer",

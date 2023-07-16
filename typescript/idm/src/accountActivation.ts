@@ -80,9 +80,9 @@ function checkActivationState(user: ManagedUser, content: Partial<ActivationShar
   }
 
   if (user.activationStatus === ActivationStatus.STARTED_ACTIVATION) {
-    // Set a shared state that is the activation time, so that we can wait 30 seconds if it hasn't elapsed by final activation.
+    // Set a shared state that is the activation time, so that we can wait 5 seconds if it hasn't elapsed by final activation.
     const activationDelay = new Date()
-    activationDelay.setSeconds(activationDelay.getSeconds() + 30)
+    activationDelay.setSeconds(activationDelay.getSeconds() + 5)
     return { outcome: ActivationState.INTERMEDIATE_ACTIVATION, sharedState: { "activation.activationDelay": activationDelay.toISOString() } }
   }
 

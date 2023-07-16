@@ -37,12 +37,15 @@ class ScriptReload:
                         jsonfile = json.load(fp=jsonfp)
                     
                     try:
-                        inline_file = (jsonfile["data"]["script"]["$base64:encode"]["$inline"])
-                        if inline_file == groovy_filename:
-                            print(f"Found a match in {fname}")
-                            matches = re.search(self.uidRegex, jsonfile["metadata"]["uid"])
+                        if isinstance(jsonfile["data"]["script"], str):
+                            print(f"Warning: Script Name [{jsonfile['data']['name']}] with file: [{fname}] has a string based script, this is most likely not desired and should be corrected/discarded")
+                        else:
+                            inline_file = jsonfile["data"]["script"]["$base64:encode"]["$inline"]
+                            if inline_file == groovy_filename:
+                                print(f"Found a match in {fname}")
+                                matches = re.search(self.uidRegex, jsonfile["metadata"]["uid"])
 
-                            return ScriptNode(id=matches.group(1), groovy_path=os.path.join(self.base_dir, groovy_filename), json_path=path, json=jsonfile)
+                                return ScriptNode(id=matches.group(1), groovy_path=os.path.join(self.base_dir, groovy_filename), json_path=path, json=jsonfile)
                         
                     except KeyError:
                         pass
