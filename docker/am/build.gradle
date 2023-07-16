@@ -8,7 +8,7 @@ version = '1.0-SNAPSHOT'
 sourceSets {
     main {
         groovy {
-            srcDirs = ['classes', '/home/joel/wsldev/forgeops/docker/am/config-profiles/cdk/config/services/realm/root/scriptingservice/1.0/organizationconfig/default/scriptconfigurations']
+            srcDirs = ['classes', 'config-profiles/cdk/config/services/realm/root/scriptingservice/1.0/organizationconfig/default/scriptconfigurations']
         }
     }
 }
