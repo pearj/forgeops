@@ -47,3 +47,9 @@ tag.json
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build

@@ -1,0 +1,31 @@
+plugins {
+    id 'groovy'
+}
+
+group = 'pearj.scripted'
+version = '1.0-SNAPSHOT'
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['classes', '/home/joel/wsldev/forgeops/docker/am/config-profiles/cdk/config/services/realm/root/scriptingservice/1.0/organizationconfig/default/scriptconfigurations']
+        }
+    }
+}
+
+ext {
+    openamVersion = '7.3.0'
+    openamGroovyVersion = '3.0.10'
+}
+
+dependencies {
+    implementation "org.codehaus.groovy:groovy-all:$openamGroovyVersion"
+    implementation("org.forgerock.am:openam-core:$openamVersion") {
+        exclude group: 'org.forgerock.opendj', module: 'opendj-server'
+        exclude group: 'org.forgerock.opendj', module: 'opendj-core'
+    }
+    implementation("org.forgerock.am:openam-auth-scripted:$openamVersion") {
+        exclude group: 'org.forgerock.opendj', module: 'opendj-server'
+        exclude group: 'org.forgerock.opendj', module: 'opendj-core'
+    }
+}
