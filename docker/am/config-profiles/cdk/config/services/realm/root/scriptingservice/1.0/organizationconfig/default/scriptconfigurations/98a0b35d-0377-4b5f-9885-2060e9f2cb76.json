@@ -28,7 +28,7 @@
         "$inline" : "ChangePassword.groovy"
       }
     },
-    "description" : null,
+    "description" : "Change Password with Confirm and Password Policies",
     "lastModifiedBy" : "null",
     "context" : "AUTHENTICATION_TREE_DECISION_NODE",
     "lastModifiedDate" : "0",

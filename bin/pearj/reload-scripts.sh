@@ -9,7 +9,15 @@ COOKIE_FILE=${SCRIPT_DIR}/cookies.txt
 AM_ADMIN_PASSWORD=$(kubectl get secret am-env-secrets -o go-template='{{index .data "AM_PASSWORDS_AMADMIN_CLEAR" | base64decode}}') 
 AM_URL=$(kubectl get configmap platform-config -o go-template='{{index .data "AM_URL"}}') 
 
-CHANGED_FILE=$1
+CHANGED_FILE=${1:-}
+if [[ -z $CHANGED_FILE ]]; then
+  echo "Nothing specified syncing directory"
+  kubectl cp ${CDK_BASE}/${SCRIPTING_DIR}/ $(kubectl get pod -l app=am -o jsonpath='{.items[0].metadata.name}'):openam/${SCRIPTING_DIR}/../
+
+else
+  echo "Syncing file $CHANGED_FILE"
+fi
+
 kubectl cp ${CDK_BASE}/${SCRIPTING_DIR}/${CHANGED_FILE} $(kubectl get pod -l app=am -o jsonpath='{.items[0].metadata.name}'):openam/${SCRIPTING_DIR}/${CHANGED_FILE}
 # openam/config/services/realm/root/scriptingservice/1.0/organizationconfig/default/scriptconfigurations/
 
